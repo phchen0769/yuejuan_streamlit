@@ -46,7 +46,7 @@ for user in user_df:
 cookie = {
     "expiry_days": 30,
     "key": "Fedorov is handsome man.",  # 必须是字符串
-    "name": "liusu_cookie",
+    "name": "yuanjuan_cookie",
     "preauthorized": {"emails": "phchen0769@gmail.com"},
 }
 
