@@ -8,16 +8,25 @@
             "name": "Python: Streamlit",
             "type": "debugpy",
             "request": "launch",
-            // "program": "${file}",
-            // "console": "integratedTerminal",
             "program": "/home/vscode/.local/bin/streamlit",
             "args": [
                 "run",
                 "auth.py",
-                // "${file}",
                 "--server.port",
-                "8501"
+                "8888"
             ],
+            "env": {
+                "PYTHONPATH": "${workspaceRoot}"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Python: CurrentFile",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
             "env": {
                 "PYTHONPATH": "${workspaceRoot}"
             },
