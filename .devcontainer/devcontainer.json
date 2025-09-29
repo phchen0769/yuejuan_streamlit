@@ -19,10 +19,10 @@
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
-		9999
+		8888
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// pip3 升级、设置清华源、安装requirements.txt中的依赖包
+	// 用于devcontainer中，pip3 升级、设置清华源、安装requirements.txt中的依赖包
 	"postCreateCommand": "pip3 install --upgrade pip && pip3 config set global.index-url https:\/\/pypi.tuna.tsinghua.edu.cn\/simple && pip3 install --user -r requirements.txt",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"

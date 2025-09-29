@@ -6,7 +6,7 @@ from datetime import datetime
 import streamlit as st
 
 from file_operator import *
-
+from utils import normalize_command
 
 # 建立ORM基础类
 Base = declarative_base()
@@ -37,7 +37,6 @@ class Student(Base):
     class_name = Column(String(16))
     score = Column(Integer)
 
-
 # excel导入数据库表questions
 def to_sql_questions(xls_df, creator, class_name):
     # 创建数据库连接引擎
@@ -64,8 +63,6 @@ def to_sql_questions(xls_df, creator, class_name):
         # 答案处理
         try:
             answer = str(row[2])
-            # 获取答案，去除前后空格并转换成小写
-            answer = answer.lower().strip()
         except:
             answer = ""
 
@@ -76,7 +73,8 @@ def to_sql_questions(xls_df, creator, class_name):
         if student_obj.name == "admin":
             # 如果row长度等于4
             score = row[3]
-        elif stander_answer["answer"][i] == answer:
+        # elif stander_answer["answer"][i] == answer:
+        elif normalize_command(stander_answer["answer"][i]) == normalize_command(answer):
             score = stander_answer["score"][i]
             student_obj.score += score
         # 如果以上条件都不满足，score 保持默认值 0
