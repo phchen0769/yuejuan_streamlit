@@ -73,7 +73,6 @@ def to_sql_questions(xls_df, creator, class_name):
         if student_obj.name == "admin":
             # 如果row长度等于4
             score = row[3]
-        # elif stander_answer["answer"][i] == answer:
         elif normalize_command(stander_answer["answer"][i]) == normalize_command(answer):
             score = stander_answer["score"][i]
             student_obj.score += score
@@ -181,7 +180,7 @@ if __name__ == "__main__":
     to_sql_questions(xls_df, creator="ttcc", class_name="21软件2")
 
     # 删除id=1的数据
-    del_data(1)
+    del_student_data(1)
 
     # 删除所有数据
-    # del_data(0)
+    del_student_data(0)
